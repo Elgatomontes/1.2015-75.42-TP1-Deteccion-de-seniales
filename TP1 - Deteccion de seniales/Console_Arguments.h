@@ -22,4 +22,8 @@ typedef struct {
     char *out_file;
 } ConsoleArguments;
 
+void consoleArgumentsCreate(ConsoleArguments *arguments_parser,
+                            int arguments_count,
+                            const char *arguments[]);
+
 #endif /* defined(__TP1___Deteccion_de_seniales__Console_Arguments__) */

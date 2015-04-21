@@ -7,3 +7,10 @@
 //
 
 #include "Console_Arguments.h"
+
+void consoleArgumentsCreate(ConsoleArguments *arguments_parser,
+                            int arguments_count,
+                            const char *arguments[])
+{
+    
+}
