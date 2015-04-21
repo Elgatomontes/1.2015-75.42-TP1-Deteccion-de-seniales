@@ -18,11 +18,17 @@ typedef enum {
 
 typedef struct {
     ConsoleArgumentsCode arguments_code;
-    char *in_file;
-    char *out_file;
+    const char *in_file;
+    const char *out_file;
 } ConsoleArguments;
 
-void consoleArgumentsCreate(ConsoleArguments *arguments_parser,
+/**
+ * Create console arguments data parser.
+ * @param - arguments_parser: The console arguments parser.
+ * @param - arguments_count: The number of arguments.
+ * @param - arguments[]: The list of arguments.
+ **/
+void consoleArgumentsCreate(ConsoleArguments *console_arguments,
                             int arguments_count,
                             const char *arguments[]);
 
