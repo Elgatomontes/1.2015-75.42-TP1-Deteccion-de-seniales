@@ -12,6 +12,10 @@
 
 #define IN_FILE_PARAMETER_KEY "-i"
 #define OUT_FILE_PARAMETER_KEY "-o"
+#define FIRST_PARAMETER_KEY_INDEX 1
+#define FIRST_PARAMETER_INDEX 2
+#define SECOND_PARAMETER_KEY_INDEX 3
+#define SECOND_PARAMETER_INDEX 4
 
 void setInvalidConfiguration(ConsoleArguments *console_arguments)
 {
@@ -39,13 +43,19 @@ void consoleArgumentsCreate(ConsoleArguments *console_arguments,
 {
     switch (arguments_count) {
         case 3:
-            parseArgument(console_arguments, arguments[2], arguments[1]);
+            parseArgument(console_arguments,
+                          arguments[FIRST_PARAMETER_INDEX],
+                          arguments[FIRST_PARAMETER_KEY_INDEX]);
             break;
         case 5:
-            parseArgument(console_arguments, arguments[2], arguments[1]);
+            parseArgument(console_arguments,
+                          arguments[FIRST_PARAMETER_INDEX],
+                          arguments[FIRST_PARAMETER_KEY_INDEX]);
             
             if (console_arguments->arguments_code != ConsoleArgumentsCodeFail) {
-                parseArgument(console_arguments, arguments[4], arguments[3]);
+                parseArgument(console_arguments,
+                              arguments[SECOND_PARAMETER_INDEX],
+                              arguments[SECOND_PARAMETER_KEY_INDEX]);
             }
             break;
         default:
