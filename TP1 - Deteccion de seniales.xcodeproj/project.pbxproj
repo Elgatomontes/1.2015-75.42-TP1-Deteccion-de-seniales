@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		87FAAF071AE696E40073AC6F /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 87FAAF061AE696E40073AC6F /* main.c */; };
-		87FAAF121AE6FDD10073AC6F /* Console_Arguments.c in Sources */ = {isa = PBXBuildFile; fileRef = 87FAAF101AE6FDD10073AC6F /* Console_Arguments.c */; };
+		87FAAF151AE718C60073AC6F /* Parameters.c in Sources */ = {isa = PBXBuildFile; fileRef = 87FAAF131AE718C60073AC6F /* Parameters.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -26,8 +26,8 @@
 /* Begin PBXFileReference section */
 		87FAAF031AE696E40073AC6F /* TP1 - Deteccion de seniales */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "TP1 - Deteccion de seniales"; sourceTree = BUILT_PRODUCTS_DIR; };
 		87FAAF061AE696E40073AC6F /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
-		87FAAF101AE6FDD10073AC6F /* Console_Arguments.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Console_Arguments.c; sourceTree = "<group>"; };
-		87FAAF111AE6FDD10073AC6F /* Console_Arguments.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Console_Arguments.h; sourceTree = "<group>"; };
+		87FAAF131AE718C60073AC6F /* Parameters.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Parameters.c; sourceTree = "<group>"; };
+		87FAAF141AE718C60073AC6F /* Parameters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Parameters.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,8 +61,8 @@
 			isa = PBXGroup;
 			children = (
 				87FAAF061AE696E40073AC6F /* main.c */,
-				87FAAF101AE6FDD10073AC6F /* Console_Arguments.c */,
-				87FAAF111AE6FDD10073AC6F /* Console_Arguments.h */,
+				87FAAF131AE718C60073AC6F /* Parameters.c */,
+				87FAAF141AE718C60073AC6F /* Parameters.h */,
 			);
 			path = "TP1 - Deteccion de seniales";
 			sourceTree = "<group>";
@@ -123,7 +123,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				87FAAF121AE6FDD10073AC6F /* Console_Arguments.c in Sources */,
+				87FAAF151AE718C60073AC6F /* Parameters.c in Sources */,
 				87FAAF071AE696E40073AC6F /* main.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
