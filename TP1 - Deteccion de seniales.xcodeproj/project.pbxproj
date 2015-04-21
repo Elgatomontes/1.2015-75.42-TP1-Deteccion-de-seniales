@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		87FAAF071AE696E40073AC6F /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 87FAAF061AE696E40073AC6F /* main.c */; };
+		87FAAF0F1AE6E3A20073AC6F /* Arguments.c in Sources */ = {isa = PBXBuildFile; fileRef = 87FAAF0E1AE6E3A20073AC6F /* Arguments.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +26,8 @@
 /* Begin PBXFileReference section */
 		87FAAF031AE696E40073AC6F /* TP1 - Deteccion de seniales */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "TP1 - Deteccion de seniales"; sourceTree = BUILT_PRODUCTS_DIR; };
 		87FAAF061AE696E40073AC6F /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		87FAAF0D1AE6E3940073AC6F /* Arguments.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Arguments.h; sourceTree = "<group>"; };
+		87FAAF0E1AE6E3A20073AC6F /* Arguments.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Arguments.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +61,8 @@
 			isa = PBXGroup;
 			children = (
 				87FAAF061AE696E40073AC6F /* main.c */,
+				87FAAF0D1AE6E3940073AC6F /* Arguments.h */,
+				87FAAF0E1AE6E3A20073AC6F /* Arguments.c */,
 			);
 			path = "TP1 - Deteccion de seniales";
 			sourceTree = "<group>";
@@ -118,6 +123,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87FAAF0F1AE6E3A20073AC6F /* Arguments.c in Sources */,
 				87FAAF071AE696E40073AC6F /* main.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -232,6 +238,7 @@
 				87FAAF0C1AE696E40073AC6F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
