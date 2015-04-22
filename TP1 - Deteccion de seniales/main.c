@@ -22,22 +22,22 @@ int main(int argc, const char * argv[]) {
     File output_file;
     
     parametersCreate(&console_parameter, argc, argv);
-    if (console_parameter.parameters_code == ParametersCodeFail) {
+    if (parametersCode(&console_parameter) == ParametersCodeFail) {
         return EXECUTION_INVALID_PARAMETERS;
     }
     
     fileCreate(&input_file,
-               (char *)console_parameter.input_file,
+               (char *)parametersInputFileName(&console_parameter),
                FileOpenModeRead);
-    if (input_file.operation_code == FileOperationCodeFail) {
+    if (fileOperationCode(&input_file) == FileOperationCodeFail) {
         parametersDestroy(&console_parameter);
         return EXECUTION_FILES_ERROR;
     }
     
     fileCreate(&output_file,
-               (char *)console_parameter.output_file,
+               (char *)parametersOutputFileName(&console_parameter),
                FileOpenMOdeWrite);
-    if (output_file.operation_code == FileOperationCodeFail) {
+    if (fileOperationCode(&output_file) == FileOperationCodeFail) {
         parametersDestroy(&console_parameter);
         fileDestroy(&input_file);
         return EXECUTION_FILES_ERROR;

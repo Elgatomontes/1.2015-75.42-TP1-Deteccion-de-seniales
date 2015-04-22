@@ -68,10 +68,14 @@ void parametersDestroy(Parameters *parameters_parser) {
     parameters_parser->parameters_code = ParametersCodeFail;
 }
 
-const char *parameterInputFileName(Parameters *parameters) {
+const char *parametersInputFileName(Parameters *parameters) {
     return parameters->input_file;
 }
 
-const char *parameterOutputFileName(Parameters *parameters) {
+const char *parametersOutputFileName(Parameters *parameters) {
     return parameters->output_file;
+}
+
+ParametersCode parametersCode(Parameters *parameters) {
+    return parameters->parameters_code;
 }

@@ -38,12 +38,18 @@ void parametersDestroy(Parameters *parameters_parser);
  * Returns the input file name.
  * @param - parameters: The console parameters parser.
  **/
-const char *parameterInputFileName(Parameters *parameters);
+const char *parametersInputFileName(Parameters *parameters);
 
 /**
  * Returns the output file name.
  * @param - parameters: The console parameters parser.
  **/
-const char *parameterOutputFileName(Parameters *parameters);
+const char *parametersOutputFileName(Parameters *parameters);
+
+/**
+ * Returns the operation code.
+ * @param - parameters: The console parameters parser.
+ **/
+ParametersCode parametersCode(Parameters *parameters);
 
 #endif /* defined(__TP1___Deteccion_de_seniales__Parameters__) */
