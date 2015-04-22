@@ -23,25 +23,33 @@ char *openMode(FileOpenMode open_mode) {
     return "";
 }
 
+void setStandardFile(File *file, FileOpenMode open_mode) {
+    if (open_mode == FileOpenModeRead) {
+        file->file = stdin;
+    } else if (open_mode == FileOpenMOdeWrite) {
+        file->file = stdout;
+    }
+}
+
 void fileCreate(File *file, char *file_name, FileOpenMode open_mode) {
     file->file = NULL;
     
-    if (strlen(file_name) > 0) {
+    if (file_name != NULL && strlen(file_name) > 0) {
         file->file = fopen(file_name, openMode(open_mode));
-        
-        // file can not be NULL.
-        if (file->file == NULL) {
-            file->operation_code = FileOperationCodeFail;
-        } else {
-            file->operation_code = FileOperationCodeSuccess;
-        }
     } else {
+        setStandardFile(file, open_mode);
+    }
+    
+    // file can not be NULL.
+    if (file->file == NULL) {
         file->operation_code = FileOperationCodeFail;
+    } else {
+        file->operation_code = FileOperationCodeSuccess;
     }
 }
 
 void fileDestroy(File *file) {
-    if (file->file != NULL) {
+    if (file->file != NULL && file->file != stdin && file->file != stdout) {
         fclose(file->file);
     }
 }
