@@ -40,6 +40,11 @@ void parametersCreate(Parameters *parameters_parser,
                       int parameters_count,
                       const char *parameters[]) {
     switch (parameters_count) {
+        case 1:
+            parameters_parser->input_file = NULL;
+            parameters_parser->output_file = NULL;
+            parameters_parser->parameters_code = ParametersCodeOK;
+            break;
         case 3:
             parseParameters(parameters_parser,
                             parameters[FIRST_PARAMETER_INDEX],
