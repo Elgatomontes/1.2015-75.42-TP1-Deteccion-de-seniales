@@ -20,8 +20,8 @@
 void setInvalidConfiguration(Parameters *parameters)
 {
     parameters->parameters_code = ParametersCodeFail;
-    parameters->in_file = NULL;
-    parameters->out_file = NULL;
+    parameters->input_file = NULL;
+    parameters->output_file = NULL;
 }
 
 void parseParameters(Parameters *parameters,
@@ -29,9 +29,9 @@ void parseParameters(Parameters *parameters,
                      const char *parameter_type)
 {
     if (strcmp(parameter_type, IN_FILE_PARAMETER_KEY) == 0) {
-        parameters->in_file = parameter;
+        parameters->input_file = parameter;
     } else if (strcmp(parameter_type, OUT_FILE_PARAMETER_KEY) == 0) {
-        parameters->out_file = parameter;
+        parameters->output_file = parameter;
     } else {
         setInvalidConfiguration(parameters);
     }
@@ -66,7 +66,17 @@ void parametersCreate(Parameters *parameters_parser,
 
 void parametersDestroy(Parameters *parameters_parser)
 {
-    parameters_parser->in_file = NULL;
-    parameters_parser->out_file = NULL;
+    parameters_parser->input_file = NULL;
+    parameters_parser->output_file = NULL;
     parameters_parser->parameters_code = ParametersCodeFail;
+}
+
+const char *parameterInputFileName(Parameters *parameters)
+{
+    return parameters->input_file;
+}
+
+const char *parameterOutputFileName(Parameters *parameters)
+{
+    return parameters->output_file;
 }

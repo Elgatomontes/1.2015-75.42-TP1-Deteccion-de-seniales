@@ -18,8 +18,8 @@ typedef enum {
 
 typedef struct {
     ParametersCode parameters_code;
-    const char *in_file;
-    const char *out_file;
+    const char *input_file;
+    const char *output_file;
 } Parameters;
 
 /**
@@ -33,5 +33,17 @@ void parametersCreate(Parameters *parameters_parser,
                       const char *parameters[]);
 
 void parametersDestroy(Parameters *parameters_parser);
+
+/**
+ * Returns the input file name.
+ * @param - parameters: The console parameters parser.
+ **/
+const char *parameterInputFileName(Parameters *parameters);
+
+/**
+ * Returns the output file name.
+ * @param - parameters: The console parameters parser.
+ **/
+const char *parameterOutputFileName(Parameters *parameters);
 
 #endif /* defined(__TP1___Deteccion_de_seniales__Parameters__) */
