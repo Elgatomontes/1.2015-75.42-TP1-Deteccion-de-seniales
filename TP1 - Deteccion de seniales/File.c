@@ -23,7 +23,7 @@ char *openMode(FileOpenMode open_mode) {
     return "";
 }
 
-void filesCreate(File *file, char *file_name, FileOpenMode open_mode) {
+void fileCreate(File *file, char *file_name, FileOpenMode open_mode) {
     file->file = NULL;
     
     if (strlen(file_name) > 0) {
@@ -38,4 +38,18 @@ void filesCreate(File *file, char *file_name, FileOpenMode open_mode) {
     } else {
         file->operation_code = FileOperationCodeFail;
     }
+}
+
+void fileDestroy(File *file) {
+    if (file->file != NULL) {
+        fclose(file->file);
+    }
+}
+
+FileOperationCode fileOperationCode(File *file) {
+    return file->operation_code;
+}
+
+FILE *fileOpenned(File *file) {
+    return file->file;
 }

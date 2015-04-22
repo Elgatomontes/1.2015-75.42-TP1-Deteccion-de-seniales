@@ -32,6 +32,21 @@ typedef struct {
  * @param - file_name: the name of the file to open/create.
  * @param - open_mode: Mode to open the file.
  */
-void filesCreate(File *file, char *file_name, FileOpenMode open_mode);
+void fileCreate(File *file, char *file_name, FileOpenMode open_mode);
+
+/**
+ * Close the file.
+ **/
+void fileDestroy(File *file);
+
+/**
+ * Returns the operation code of the file opening.
+ **/
+FileOperationCode fileOperationCode(File *file);
+
+/**
+ * Returns the file openned.
+ **/
+FILE *fileOpenned(File *file);
 
 #endif /* defined(__TP1___Deteccion_de_seniales__File__) */
