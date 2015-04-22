@@ -19,7 +19,7 @@
 
 void setInvalidConfiguration(Parameters *parameters)
 {
-    parameters->parameters_code = ConsoleArgumentsCodeFail;
+    parameters->parameters_code = ParametersCodeFail;
     parameters->in_file = NULL;
     parameters->out_file = NULL;
 }
@@ -37,7 +37,7 @@ void parseParameters(Parameters *parameters,
     }
 }
 
-void ParametersCreate(Parameters *parameters_parser,
+void parametersCreate(Parameters *parameters_parser,
                       int parameters_count,
                       const char *parameters[])
 {
@@ -62,4 +62,11 @@ void ParametersCreate(Parameters *parameters_parser,
             setInvalidConfiguration(parameters_parser);
             break;
     }
+}
+
+void parametersDestroy(Parameters *parameters_parser)
+{
+    parameters_parser->in_file = NULL;
+    parameters_parser->out_file = NULL;
+    parameters_parser->parameters_code = ParametersCodeFail;
 }

@@ -28,8 +28,10 @@ typedef struct {
  * @param - parameters_count: The number of parameters.
  * @param - parameters[]: The list of parameters.
  **/
-void ParametersCreate(Parameters *parameters_parser,
+void parametersCreate(Parameters *parameters_parser,
                       int parameters_count,
                       const char *parameters[]);
+
+void parametersDestroy(Parameters *parameters_parser);
 
 #endif /* defined(__TP1___Deteccion_de_seniales__Parameters__) */
