@@ -6,7 +6,6 @@
 //  Copyright (c) 2015 Gastón Montes. All rights reserved.
 //
 
-#include <string.h>
 #include <stdio.h>
 
 #include "Parameters.h"
