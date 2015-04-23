@@ -62,11 +62,7 @@ FILE *fileOpenned(File *file) {
     return file->file;
 }
 
-FileOperationCode fileReadLine(File *file, char *line, size_t max_lenght) {
-    ssize_t bytes_read = getline(&line, &max_lenght, file->file);
-    if (bytes_read == -1) {
-        return FileOperationCodeFail;
-    }
+void fileReadLine(File *file, char *line, size_t max_lenght) {
+    getline(&line, &max_lenght, file->file);
     printf("Línea leída: %s\n", line);
-    return FileOperationCodeSuccess;
 }

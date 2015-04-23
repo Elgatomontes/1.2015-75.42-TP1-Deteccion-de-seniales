@@ -54,7 +54,7 @@ FILE *fileOpenned(File *file);
  * @param - line: The buffer to set the line read.
  * @param - max_lenght: The maxium number of characters for a line.
  **/
-FileOperationCode fileReadLine(File *file, char *line, size_t max_lenght);
+void fileReadLine(File *file, char *line, size_t max_lenght);
 
 
 
