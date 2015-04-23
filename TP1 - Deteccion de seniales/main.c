@@ -7,7 +7,6 @@
 //
 
 #include <string.h>
-#include <stdlib.h>
 #include <stdio.h>
 
 #include "Parameters.h"
@@ -17,8 +16,6 @@
 #define EXECUTION_NORMAL 0
 #define EXECUTION_INVALID_PARAMETERS 1
 #define EXECUTION_FILES_ERROR 2
-
-#define LINE_MAX_LENGHT 255
 
 int createFile(Parameters *parameters, File *input_file, File *output_file) {
     // Create input file.
@@ -48,7 +45,6 @@ int main(int argc, const char * argv[]) {
     File input_file;
     File output_file;
     Arguments arguments;
-    char *line_buffer;
     
     // Create parameter.
     parametersCreate(&console_parameter, argc, argv);
@@ -62,19 +58,14 @@ int main(int argc, const char * argv[]) {
         return f_creation;
     }
     
-    // Read line from input file (File is in correct format).
-    line_buffer = (char *)malloc(sizeof(char)*LINE_MAX_LENGHT);
-    fileReadLine(&input_file, line_buffer, LINE_MAX_LENGHT);
-    
     // Create arguments.
-    argumentsCreate(&arguments, line_buffer);
+    argumentsCreate(&arguments, &input_file);
     
     // Destroy all data.
     parametersDestroy(&console_parameter);
     fileDestroy(&input_file);
     fileDestroy(&output_file);
     argumentsDestroy(&arguments);
-    free(line_buffer);
     
     return EXECUTION_NORMAL;
 }

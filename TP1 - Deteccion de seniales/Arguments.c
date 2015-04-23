@@ -6,10 +6,17 @@
 //  Copyright (c) 2015 Gastón Montes. All rights reserved.
 //
 
+#include <stdlib.h>
+
 #include "Arguments.h"
 
-void argumentsCreate(Arguments *arguments, const char *line) {
-    sscanf(line, "%d,%f,%f,%d",
+#define LINE_MAX_LENGHT 255
+
+void argumentsCreate(Arguments *arguments, File *file) {
+    // Read line from input file (File is in correct format).
+    char *line_buffer = malloc(sizeof(char) * LINE_MAX_LENGHT);
+    fileReadLine(file, line_buffer, LINE_MAX_LENGHT);
+    sscanf(line_buffer, "%d,%f,%f,%d",
            &arguments->signal_lenght,
            &arguments->zero_prob,
            &arguments->one_prob,

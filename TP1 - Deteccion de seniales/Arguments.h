@@ -11,6 +11,8 @@
 
 #include <stdio.h>
 
+#include "File.h"
+
 typedef struct {
     int signal_lenght;
     float zero_prob;
@@ -22,7 +24,7 @@ typedef struct {
  * Create a new arguments data.
  * @param - line: The line read from file with <N>, <P(0)>, <P(1)>, <var>.
  **/
-void argumentsCreate(Arguments *arguments, const char *line);
+void argumentsCreate(Arguments *arguments, File *file);
 
 /**
  * Detroy the Arguments data.
