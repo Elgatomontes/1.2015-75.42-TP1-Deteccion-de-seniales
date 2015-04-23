@@ -16,7 +16,7 @@
 char *openMode(FileOpenMode open_mode) {
     if (open_mode == FileOpenModeRead) {
         return FILE_OPEN_MODE_READ;
-    } else if (open_mode == FileOpenMOdeWrite) {
+    } else if (open_mode == FileOpenModeWrite) {
         return FILE_OPEN_MODE_WRITE;
     }
     
@@ -26,7 +26,7 @@ char *openMode(FileOpenMode open_mode) {
 void setStandardFile(File *file, FileOpenMode open_mode) {
     if (open_mode == FileOpenModeRead) {
         file->file = stdin;
-    } else if (open_mode == FileOpenMOdeWrite) {
+    } else if (open_mode == FileOpenModeWrite) {
         file->file = stdout;
     }
 }
@@ -60,4 +60,13 @@ FileOperationCode fileOperationCode(File *file) {
 
 FILE *fileOpenned(File *file) {
     return file->file;
+}
+
+FileOperationCode fileReadLine(File *file, char *line, size_t max_lenght) {
+    ssize_t bytes_read = getline(&line, &max_lenght, file->file);
+    if (bytes_read == -1) {
+        return FileOperationCodeFail;
+    }
+    printf("Línea leída: %s\n", line);
+    return FileOperationCodeSuccess;
 }

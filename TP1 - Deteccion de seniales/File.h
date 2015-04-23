@@ -18,7 +18,7 @@ typedef enum {
 
 typedef enum {
     FileOpenModeRead,
-    FileOpenMOdeWrite
+    FileOpenModeWrite
 } FileOpenMode;
 
 typedef struct {
@@ -48,5 +48,14 @@ FileOperationCode fileOperationCode(File *file);
  * Returns the file openned.
  **/
 FILE *fileOpenned(File *file);
+
+/**
+ * Read a line from file.
+ * @param - line: The buffer to set the line read.
+ * @param - max_lenght: The maxium number of characters for a line.
+ **/
+FileOperationCode fileReadLine(File *file, char *line, size_t max_lenght);
+
+
 
 #endif /* defined(__TP1___Deteccion_de_seniales__File__) */

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		87753BB41AE8934D0079A4FF /* Arguments.c in Sources */ = {isa = PBXBuildFile; fileRef = 87753BB21AE8934D0079A4FF /* Arguments.c */; };
 		87FAAF071AE696E40073AC6F /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 87FAAF061AE696E40073AC6F /* main.c */; };
 		87FAAF151AE718C60073AC6F /* Parameters.c in Sources */ = {isa = PBXBuildFile; fileRef = 87FAAF131AE718C60073AC6F /* Parameters.c */; };
 		87FAAF181AE751420073AC6F /* File.c in Sources */ = {isa = PBXBuildFile; fileRef = 87FAAF161AE751420073AC6F /* File.c */; };
@@ -25,6 +26,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		87753BB21AE8934D0079A4FF /* Arguments.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Arguments.c; sourceTree = "<group>"; };
+		87753BB31AE8934D0079A4FF /* Arguments.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Arguments.h; sourceTree = "<group>"; };
 		87FAAF031AE696E40073AC6F /* TP1 - Deteccion de seniales */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "TP1 - Deteccion de seniales"; sourceTree = BUILT_PRODUCTS_DIR; };
 		87FAAF061AE696E40073AC6F /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		87FAAF131AE718C60073AC6F /* Parameters.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Parameters.c; sourceTree = "<group>"; };
@@ -68,6 +71,8 @@
 				87FAAF141AE718C60073AC6F /* Parameters.h */,
 				87FAAF161AE751420073AC6F /* File.c */,
 				87FAAF171AE751420073AC6F /* File.h */,
+				87753BB21AE8934D0079A4FF /* Arguments.c */,
+				87753BB31AE8934D0079A4FF /* Arguments.h */,
 			);
 			path = "TP1 - Deteccion de seniales";
 			sourceTree = "<group>";
@@ -130,6 +135,7 @@
 			files = (
 				87FAAF181AE751420073AC6F /* File.c in Sources */,
 				87FAAF151AE718C60073AC6F /* Parameters.c in Sources */,
+				87753BB41AE8934D0079A4FF /* Arguments.c in Sources */,
 				87FAAF071AE696E40073AC6F /* main.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
