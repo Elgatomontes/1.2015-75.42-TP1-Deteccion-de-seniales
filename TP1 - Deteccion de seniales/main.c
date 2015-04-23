@@ -16,7 +16,7 @@
 #define EXECUTION_INVALID_PARAMETERS 1
 #define EXECUTION_FILES_ERROR 2
 
-int createFile(Parameters *parameters, File *input_file, File *output_file) {
+int createFiles(Parameters *parameters, File *input_file, File *output_file) {
     // Create input file.
     fileCreate(input_file,
                (char *)parametersInputFileName(parameters),
@@ -52,7 +52,7 @@ int main(int argc, const char * argv[]) {
     }
     
     // Create input and output files.
-    int f_creation = createFile(&console_parameter, &input_file, &output_file);
+    int f_creation = createFiles(&console_parameter, &input_file, &output_file);
     if (f_creation != EXECUTION_NORMAL) {
         return f_creation;
     }
