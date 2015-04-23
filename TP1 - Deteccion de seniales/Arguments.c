@@ -26,6 +26,7 @@ void argumentsCreate(Arguments *arguments, File *file) {
            arguments->zero_prob,
            arguments->one_prob,
            arguments->noise_var);
+    free(line_buffer);
 }
 
 void argumentsDestroy(Arguments *arguments) {
