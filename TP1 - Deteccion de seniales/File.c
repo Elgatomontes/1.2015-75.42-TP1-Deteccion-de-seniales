@@ -64,5 +64,5 @@ FILE *fileOpenned(File *file) {
 
 void fileReadLine(File *file, char *line, size_t max_lenght) {
     getline(&line, &max_lenght, file->file);
-    printf("Línea leída: %s\n", line);
+    printf("Línea leída: %s", line);
 }

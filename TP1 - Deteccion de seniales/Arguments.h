@@ -22,7 +22,7 @@ typedef struct {
 
 /**
  * Create a new arguments data.
- * @param - line: The line read from file with <N>, <P(0)>, <P(1)>, <var>.
+ * @param - file: The file that contains the input file.
  **/
 void argumentsCreate(Arguments *arguments, File *file);
 

@@ -26,6 +26,13 @@ void argumentsCreate(Arguments *arguments, File *file) {
            arguments->zero_prob,
            arguments->one_prob,
            arguments->noise_var);
+    
+    // Create S(0) codification.
+    fileReadLine(file, line_buffer, LINE_MAX_LENGHT);
+    
+    // Create S(1) codification.
+    fileReadLine(file, line_buffer, LINE_MAX_LENGHT);
+    
     free(line_buffer);
 }
 

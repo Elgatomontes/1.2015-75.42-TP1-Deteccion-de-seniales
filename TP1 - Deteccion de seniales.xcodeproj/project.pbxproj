@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		870090721AE9E2A40025CAED /* Codification.c in Sources */ = {isa = PBXBuildFile; fileRef = 870090701AE9E2A40025CAED /* Codification.c */; };
 		87753BB41AE8934D0079A4FF /* Arguments.c in Sources */ = {isa = PBXBuildFile; fileRef = 87753BB21AE8934D0079A4FF /* Arguments.c */; };
 		87FAAF071AE696E40073AC6F /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 87FAAF061AE696E40073AC6F /* main.c */; };
 		87FAAF151AE718C60073AC6F /* Parameters.c in Sources */ = {isa = PBXBuildFile; fileRef = 87FAAF131AE718C60073AC6F /* Parameters.c */; };
@@ -26,6 +27,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		870090701AE9E2A40025CAED /* Codification.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Codification.c; sourceTree = "<group>"; };
+		870090711AE9E2A40025CAED /* Codification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Codification.h; sourceTree = "<group>"; };
 		87753BB21AE8934D0079A4FF /* Arguments.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Arguments.c; sourceTree = "<group>"; };
 		87753BB31AE8934D0079A4FF /* Arguments.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Arguments.h; sourceTree = "<group>"; };
 		87FAAF031AE696E40073AC6F /* TP1 - Deteccion de seniales */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "TP1 - Deteccion de seniales"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -73,6 +76,8 @@
 				87FAAF171AE751420073AC6F /* File.h */,
 				87753BB21AE8934D0079A4FF /* Arguments.c */,
 				87753BB31AE8934D0079A4FF /* Arguments.h */,
+				870090701AE9E2A40025CAED /* Codification.c */,
+				870090711AE9E2A40025CAED /* Codification.h */,
 			);
 			path = "TP1 - Deteccion de seniales";
 			sourceTree = "<group>";
@@ -137,6 +142,7 @@
 				87FAAF151AE718C60073AC6F /* Parameters.c in Sources */,
 				87753BB41AE8934D0079A4FF /* Arguments.c in Sources */,
 				87FAAF071AE696E40073AC6F /* main.c in Sources */,
+				870090721AE9E2A40025CAED /* Codification.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
