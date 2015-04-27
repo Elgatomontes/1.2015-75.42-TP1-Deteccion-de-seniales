@@ -11,6 +11,7 @@
 
 #include <stdio.h>
 
+#include "Codification.h"
 #include "File.h"
 
 typedef struct {
@@ -18,6 +19,8 @@ typedef struct {
     float zero_prob;
     float one_prob;
     int noise_var;
+    Codification zero_codif;
+    Codification one_codif;
 } Arguments;
 
 /**

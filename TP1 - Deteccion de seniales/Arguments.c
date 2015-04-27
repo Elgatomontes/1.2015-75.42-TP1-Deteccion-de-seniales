@@ -10,11 +10,9 @@
 
 #include "Arguments.h"
 
-#define LINE_MAX_LENGHT 255
-
 void argumentsCreate(Arguments *arguments, File *file) {
     // Read line from input file (File is in correct format).
-    char *line_buffer = malloc(sizeof(char) * LINE_MAX_LENGHT);
+    char *line_buffer = (char *)malloc(sizeof(char) * LINE_MAX_LENGHT);
     fileReadLine(file, line_buffer, LINE_MAX_LENGHT);
     sscanf(line_buffer, "%d,%f,%f,%d",
            &arguments->signal_lenght,
@@ -28,10 +26,10 @@ void argumentsCreate(Arguments *arguments, File *file) {
            arguments->noise_var);
     
     // Create S(0) codification.
-    fileReadLine(file, line_buffer, LINE_MAX_LENGHT);
+    codificationCreate(&arguments->zero_codif, file, arguments->signal_lenght);
     
     // Create S(1) codification.
-    fileReadLine(file, line_buffer, LINE_MAX_LENGHT);
+    codificationCreate(&arguments->one_codif, file, arguments->signal_lenght);
     
     free(line_buffer);
 }
@@ -41,6 +39,8 @@ void argumentsDestroy(Arguments *arguments) {
     arguments->zero_prob = 0;
     arguments->one_prob = 0;
     arguments->noise_var = 0;
+    codificationDestroy(&arguments->zero_codif);
+    codificationDestroy(&arguments->one_codif);
 }
 
 int argumentsSignalLenght(Arguments *arguments) {

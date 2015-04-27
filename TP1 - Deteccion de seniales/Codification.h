@@ -11,8 +11,23 @@
 
 #include <stdio.h>
 
+#include "File.h"
+
 typedef struct {
-    
+    int length;
+    int *signal_codif_list;
 } Codification;
+
+/**
+ * Create a new codification data.
+ * @param - file: The file that contains the input file.
+ * @param - length: The length of the codification.
+ **/
+void codificationCreate(Codification *codification, File *file, int length);
+
+/**
+ * Detroy the Codification data.
+ **/
+void codificationDestroy(Codification *codification);
 
 #endif /* defined(__TP1___Deteccion_de_seniales__Codification__) */

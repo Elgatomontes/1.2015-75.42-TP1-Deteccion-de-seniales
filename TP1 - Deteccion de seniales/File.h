@@ -11,6 +11,8 @@
 
 #include <stdio.h>
 
+#define LINE_MAX_LENGHT 255
+
 typedef enum {
     FileOperationCodeSuccess,
     FileOperationCodeFail,
@@ -55,7 +57,5 @@ FILE *fileOpenned(File *file);
  * @param - max_lenght: The maxium number of characters for a line.
  **/
 void fileReadLine(File *file, char *line, size_t max_lenght);
-
-
 
 #endif /* defined(__TP1___Deteccion_de_seniales__File__) */
