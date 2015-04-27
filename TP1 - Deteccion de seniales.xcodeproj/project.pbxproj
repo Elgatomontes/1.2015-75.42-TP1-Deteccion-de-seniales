@@ -12,6 +12,7 @@
 		87FAAF071AE696E40073AC6F /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 87FAAF061AE696E40073AC6F /* main.c */; };
 		87FAAF151AE718C60073AC6F /* Parameters.c in Sources */ = {isa = PBXBuildFile; fileRef = 87FAAF131AE718C60073AC6F /* Parameters.c */; };
 		87FAAF181AE751420073AC6F /* File.c in Sources */ = {isa = PBXBuildFile; fileRef = 87FAAF161AE751420073AC6F /* File.c */; };
+		87FC39721AEEF7C800487F7E /* Signal.c in Sources */ = {isa = PBXBuildFile; fileRef = 87FC39701AEEF7C800487F7E /* Signal.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -37,6 +38,8 @@
 		87FAAF141AE718C60073AC6F /* Parameters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Parameters.h; sourceTree = "<group>"; };
 		87FAAF161AE751420073AC6F /* File.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = File.c; sourceTree = "<group>"; };
 		87FAAF171AE751420073AC6F /* File.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = File.h; sourceTree = "<group>"; };
+		87FC39701AEEF7C800487F7E /* Signal.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Signal.c; sourceTree = "<group>"; };
+		87FC39711AEEF7C800487F7E /* Signal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Signal.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +81,8 @@
 				87753BB31AE8934D0079A4FF /* Arguments.h */,
 				870090701AE9E2A40025CAED /* Codification.c */,
 				870090711AE9E2A40025CAED /* Codification.h */,
+				87FC39701AEEF7C800487F7E /* Signal.c */,
+				87FC39711AEEF7C800487F7E /* Signal.h */,
 			);
 			path = "TP1 - Deteccion de seniales";
 			sourceTree = "<group>";
@@ -139,6 +144,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				87FAAF181AE751420073AC6F /* File.c in Sources */,
+				87FC39721AEEF7C800487F7E /* Signal.c in Sources */,
 				87FAAF151AE718C60073AC6F /* Parameters.c in Sources */,
 				87753BB41AE8934D0079A4FF /* Arguments.c in Sources */,
 				87FAAF071AE696E40073AC6F /* main.c in Sources */,
