@@ -42,3 +42,7 @@ void codificationDestroy(Codification *codification) {
     codification->length = 0;
     free(codification->signal_codif_list);
 }
+
+int *codificationSignalList(Codification *codification) {
+    return codification->signal_codif_list;
+}

@@ -30,4 +30,9 @@ void codificationCreate(Codification *codification, File *file, int length);
  **/
 void codificationDestroy(Codification *codification);
 
+/**
+ * Returns the signal codification list.
+ */
+int *codificationSignalList(Codification *codification);
+
 #endif /* defined(__TP1___Deteccion_de_seniales__Codification__) */

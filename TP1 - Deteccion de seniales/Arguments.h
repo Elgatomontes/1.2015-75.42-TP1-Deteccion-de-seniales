@@ -54,4 +54,14 @@ float argumentsOneProbability(Arguments *arguments);
  **/
 int argumentsNoiseVariance(Arguments *arguments);
 
+/**
+ * Returns the Codification of Zero.
+ **/
+Codification argumentsZeroCodification(Arguments *arguments);
+
+/**
+ * Returns the Codification of One.
+ **/
+Codification argumentsOneCodification(Arguments *arguments);
+
 #endif /* defined(__TP1___Deteccion_de_seniales__Arguments__) */

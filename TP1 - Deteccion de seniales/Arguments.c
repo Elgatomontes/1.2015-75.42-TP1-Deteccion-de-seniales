@@ -58,3 +58,11 @@ float argumentsOneProbability(Arguments *arguments) {
 int argumentsNoiseVariance(Arguments *arguments) {
     return arguments->noise_var;
 }
+
+Codification argumentsZeroCodification(Arguments *arguments) {
+    return arguments->zero_codif;
+}
+
+Codification argumentsOneCodification(Arguments *arguments) {
+    return arguments->one_codif;
+}
