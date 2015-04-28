@@ -64,8 +64,8 @@ FILE *fileOpenned(File *file) {
     return file->file;
 }
 
-void fileReadLine(File *file, char *line, size_t max_lenght) {
-    if (getline(&line, &max_lenght, file->file) == EOF) {
+void fileReadLine(File *file, char *line, int max_lenght) {
+    if (fgets(line, max_lenght, file->file) == NULL) {
         file->end_of_file = EOF;
     }
 }
