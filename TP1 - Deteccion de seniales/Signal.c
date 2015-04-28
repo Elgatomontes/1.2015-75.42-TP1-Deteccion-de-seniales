@@ -16,7 +16,7 @@
 void signalSetLength(Signal *signal, const char *line) {
     // Copy the line.
     char *signal_line = (char *)malloc(strlen(line)*sizeof(char));
-    strcpy(signal_line, line);
+    snprintf(signal_line, strlen(line)*sizeof(char), "%s",line);
     
     int length_counter = 0;
     
@@ -34,7 +34,7 @@ void signalSetLength(Signal *signal, const char *line) {
 void signalParseSignal(Signal *signal, const char *line) {
     // Copy the line.
     char *signal_line = (char *)malloc(strlen(line)*sizeof(char));
-    strcpy(signal_line, line);
+    snprintf(signal_line, strlen(line)*sizeof(char), "%s",line);
 
     signal->signal_list = (int *)malloc(signal->signal_length * sizeof(int));
     
