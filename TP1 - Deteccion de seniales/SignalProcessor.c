@@ -6,7 +6,10 @@
 //  Copyright (c) 2015 Gastón Montes. All rights reserved.
 //
 
+#include <stdlib.h>
+
 #include "SignalProcessor.h"
+#include "Signal.h"
 
 void signalProcessorCreate(SignalProcessor *processor,
                            Arguments arguments,
@@ -21,4 +24,10 @@ void signalProcessorDestroy(SignalProcessor *processor) {
 }
 
 void signalProcessorProcess(SignalProcessor *processor) {
+    
+    while (fileEndOfFile(processor->input_file) != EOF) {
+        Signal *a_signal = (Signal *)malloc(sizeof(Signal));
+        signalCreate(a_signal, processor->input_file);
+        free(a_signal);
+    }
 }

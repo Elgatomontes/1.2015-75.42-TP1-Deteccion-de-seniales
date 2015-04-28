@@ -26,6 +26,7 @@ typedef enum {
 typedef struct {
     FILE *file;
     FileOperationCode operation_code;
+    int end_of_file;
 } File;
 
 /**

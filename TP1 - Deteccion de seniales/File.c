@@ -33,6 +33,7 @@ void setStandardFile(File *file, FileOpenMode open_mode) {
 
 void fileCreate(File *file, char *file_name, FileOpenMode open_mode) {
     file->file = NULL;
+    file->end_of_file = 0;
     
     if (file_name != NULL && strlen(file_name) > 0) {
         file->file = fopen(file_name, openMode(open_mode));
@@ -49,6 +50,7 @@ void fileCreate(File *file, char *file_name, FileOpenMode open_mode) {
 }
 
 void fileDestroy(File *file) {
+    file->end_of_file = EOF;
     if (file->file != NULL && file->file != stdin && file->file != stdout) {
         fclose(file->file);
     }
@@ -63,13 +65,13 @@ FILE *fileOpenned(File *file) {
 }
 
 void fileReadLine(File *file, char *line, size_t max_lenght) {
-    getline(&line, &max_lenght, file->file);
+    if (getline(&line, &max_lenght, file->file) == EOF) {
+        printf("FIN DE ARCHIVO!!!\n");
+        file->end_of_file = EOF;
+    }
     printf("Línea leída: %s", line);
 }
 
 int fileEndOfFile(File *file) {
-    if (feof(file->file) == EOF) {
-        return EOF;
-    }
-    return 0;
+    return file->end_of_file;
 }
