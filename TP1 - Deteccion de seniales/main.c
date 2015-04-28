@@ -8,9 +8,9 @@
 
 #include <stdio.h>
 
+#include "SignalProcessor.h"
 #include "Parameters.h"
 #include "Arguments.h"
-#include "Signal.h"
 #include "File.h"
 
 #define EXECUTION_NORMAL 0
@@ -45,7 +45,7 @@ int main(int argc, const char * argv[]) {
     File input_file;
     File output_file;
     Arguments arguments;
-    Signal signal;
+    SignalProcessor processor;
     
     // Create parameter.
     parametersCreate(&console_parameter, argc, argv);
@@ -63,15 +63,15 @@ int main(int argc, const char * argv[]) {
     argumentsCreate(&arguments, &input_file);
     
     // Create a sample signal.
-    // @TODO: Gastón - Quitar esto.
-    signalCreate(&signal, &input_file);
+    signalProcessorCreate(&processor, arguments, &input_file, &output_file);
+    signalProcessorProcess(&processor);
     
     // Destroy all data.
     parametersDestroy(&console_parameter);
     fileDestroy(&input_file);
     fileDestroy(&output_file);
     argumentsDestroy(&arguments);
-    signalDestroy(&signal);
+    signalProcessorDestroy(&processor);
     
     return EXECUTION_NORMAL;
 }

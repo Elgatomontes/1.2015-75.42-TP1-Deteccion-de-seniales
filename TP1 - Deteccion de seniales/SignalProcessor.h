@@ -27,7 +27,7 @@ typedef struct {
  * @param - output_file: The file to write the processes signals.
  **/
 void signalProcessorCreate(SignalProcessor *processor,
-                           Arguments *arguments,
+                           Arguments arguments,
                            File *input_file,
                            File *output_file);
 
@@ -35,5 +35,10 @@ void signalProcessorCreate(SignalProcessor *processor,
  * Detroy the SignalProcessor data.
  **/
 void signalProcessorDestroy(SignalProcessor *processor);
+
+/**
+ * Process the signals in input_file and write results in output_file.
+ **/
+void signalProcessorProcess(SignalProcessor *processor);
 
 #endif /* defined(__TP1___Deteccion_de_seniales__SignalProcessor__) */

@@ -9,14 +9,16 @@
 #include "SignalProcessor.h"
 
 void signalProcessorCreate(SignalProcessor *processor,
-                           Arguments *arguments,
+                           Arguments arguments,
                            File *input_file,
                            File *output_file) {
-    processor->arguments = *arguments;
+    processor->arguments = arguments;
     processor->input_file = input_file;
     processor->output_file = output_file;
 }
 
 void signalProcessorDestroy(SignalProcessor *processor) {
-    
+}
+
+void signalProcessorProcess(SignalProcessor *processor) {
 }
