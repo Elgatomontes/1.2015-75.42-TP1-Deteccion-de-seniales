@@ -22,18 +22,14 @@ int createFiles(Parameters *parameters, File *input_file, File *output_file) {
     fileCreate(input_file,
                (char *)parametersInputFileName(parameters),
                FileOpenModeRead);
-    if (fileOperationCode(input_file) == FileOperationCodeFail) {
-        parametersDestroy(parameters);
-        return EXECUTION_FILES_ERROR;
-    }
     
     // Create output file.
     fileCreate(output_file,
                (char *)parametersOutputFileName(parameters),
                FileOpenModeWrite);
-    if (fileOperationCode(output_file) == FileOperationCodeFail) {
-        parametersDestroy(parameters);
-        fileDestroy(input_file);
+    
+    if (fileOperationCode(input_file) == FileOperationCodeFail ||
+        fileOperationCode(output_file) == FileOperationCodeFail) {
         return EXECUTION_FILES_ERROR;
     }
     
@@ -56,6 +52,9 @@ int main(int argc, const char * argv[]) {
     // Create input and output files.
     int creation_code = createFiles(&parameter, &input_file, &output_file);
     if (creation_code != EXECUTION_NORMAL) {
+        parametersDestroy(&parameter);
+        fileDestroy(&input_file);
+        fileDestroy(&output_file);
         return creation_code;
     }
     

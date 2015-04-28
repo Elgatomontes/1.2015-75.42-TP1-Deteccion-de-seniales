@@ -7,6 +7,7 @@
 //
 
 #include <stdlib.h>
+#include <string.h>
 
 #include "SignalProcessor.h"
 #include "Signal.h"
@@ -27,9 +28,13 @@ void signalProcessorPrint(SignalProcessor *processor,
         }
         
         if (i == process_length - 1) {
-            sprintf(char_to_print, "%d\n", value_to_print);
+            snprintf(char_to_print, strlen("%d\n")*sizeof(char),
+                     "%d\n",
+                     value_to_print);
         } else {
-            sprintf(char_to_print, "%d,", value_to_print);
+            snprintf(char_to_print, strlen("%d,")*sizeof(char),
+                     "%d,",
+                     value_to_print);
         }
         filePrint(processor->output_file, char_to_print);
         free(char_to_print);
