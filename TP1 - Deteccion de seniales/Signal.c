@@ -53,15 +53,23 @@ void signalParseSignal(Signal *signal, const char *line) {
     free(signal_line);
 }
 
-void signalCreate(Signal *signal, File *file) {
+SignalCreateCode signalCreate(Signal *signal, File *file) {
     printf("------------------- Signal -------------------\n");
     char *line_buffer = (char *)malloc(sizeof(char) * LINE_MAX_LENGHT);
     fileReadLine(file, line_buffer, LINE_MAX_LENGHT);
+    
+    if (fileEndOfFile(file) == EOF) {
+        printf("\nNO SE PUDO CREAR LA SEÑAL POR SER UN FIN DE ARCHIVO\n");
+        free(line_buffer);
+        return SignalCreateCodeFail;
+    }
     
     signalSetLength(signal, line_buffer);
     signalParseSignal(signal, line_buffer);
     
     free(line_buffer);
+    
+    return SignalCreateCodeOK;
 }
 
 void signalDestroy(Signal *signal) {

@@ -25,9 +25,14 @@ void signalProcessorDestroy(SignalProcessor *processor) {
 
 void signalProcessorProcess(SignalProcessor *processor) {
     
-    while (fileEndOfFile(processor->input_file) != EOF) {
-        Signal *a_signal = (Signal *)malloc(sizeof(Signal));
-        signalCreate(a_signal, processor->input_file);
-        free(a_signal);
+    Signal *signal = (Signal *)malloc(sizeof(Signal));
+    
+    while (signalCreate(signal, processor->input_file) == SignalCreateCodeOK) {
+        printf("--------------- SignalProcessor --------------\n");
+        printf("Entre a procesar\n");
+        free(signal);
+        signal = (Signal *)malloc(sizeof(Signal));
     }
+    
+    free(signal);
 }

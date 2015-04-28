@@ -13,6 +13,11 @@
 
 #include "File.h"
 
+typedef enum {
+    SignalCreateCodeOK,
+    SignalCreateCodeFail
+} SignalCreateCode;
+
 typedef struct {
     int signal_length;
     int *signal_list;
@@ -22,7 +27,7 @@ typedef struct {
  * Create a new signal data.
  * @param - file: The file that contains the input file.
  **/
-void signalCreate(Signal *signal, File *file);
+SignalCreateCode signalCreate(Signal *signal, File *file);
 
 /**
  * Detroy the Signal data.
