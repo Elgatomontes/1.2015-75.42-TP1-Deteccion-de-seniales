@@ -48,6 +48,10 @@ int *codificationSignalList(Codification *codification) {
     return codification->signal_codif_list;
 }
 
+int codificationSignalLength(Codification *codification) {
+    return codification->length;
+}
+
 int codificationProduct(Codification *one_codif, Codification *other_codif) {
     int acum = 0;
     for (int i = 0; i < one_codif->length; i++) {

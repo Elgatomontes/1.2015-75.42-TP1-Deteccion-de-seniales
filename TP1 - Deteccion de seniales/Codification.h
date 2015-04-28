@@ -36,6 +36,11 @@ void codificationDestroy(Codification *codification);
 int *codificationSignalList(Codification *codification);
 
 /**
+ * Return the codification signal length.
+ */
+int codificationSignalLength(Codification *codification);
+
+/**
  * Returns the multiplication between one_codif * other_codif(t).
  **/
 int codificationProduct(Codification *one_codif, Codification *other_codif);
