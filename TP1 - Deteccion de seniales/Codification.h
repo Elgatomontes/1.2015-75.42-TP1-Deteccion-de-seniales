@@ -26,6 +26,12 @@ typedef struct {
 void codificationCreate(Codification *codification, File *file, int length);
 
 /**
+ * Create a new codification data.
+ * @param - length: The length of the codification.
+ **/
+void codificationAbstractCreate(Codification *codification, int length);
+
+/**
  * Detroy the Codification data.
  **/
 void codificationDestroy(Codification *codification);
@@ -48,8 +54,8 @@ int codificationProduct(Codification *one_codif, Codification *other_codif);
 /**
  * Save the subtract of one_codif - other_codif in subtraction.
  **/
-void codifiationSubtract(Codification *subtraction,
-                         Codification *one_codif,
-                         Codification *other_codif);
+void codificationSubtract(Codification *subtraction,
+                          Codification *one_codif,
+                          Codification *other_codif);
 
 #endif /* defined(__TP1___Deteccion_de_seniales__Codification__) */

@@ -34,6 +34,11 @@ void codificationCreate(Codification *codification, File *file, int length) {
     free(line_buffer);
 }
 
+void codificationAbstractCreate(Codification *codification, int length) {
+    codification->length = length;
+    codification->signal_codif_list = (int *)malloc(length * sizeof(int));
+}
+
 void codificationDestroy(Codification *codification) {
     codification->length = 0;
     free(codification->signal_codif_list);
@@ -59,13 +64,14 @@ int codificationProduct(Codification *one_codif, Codification *other_codif) {
     return acum;
 }
 
-void codifiationSubtract(Codification *subtraction,
-                         Codification *one_codif,
-                         Codification *other_codif) {
-    for (int i = 0; i < one_codif->length; i++) {
+void codificationSubtract(Codification *subtraction,
+                          Codification *one_codif,
+                          Codification *other_codif) {
+    int signal_length = codificationSignalLength(one_codif);
+    for (int i = 0; i < signal_length; i++) {
         int one_element = one_codif->signal_codif_list[i];
         int other_element = other_codif->signal_codif_list[i];
-        subtraction->signal_codif_list[i] = one_element - other_element;
+        codificationSignalList(subtraction)[i] = one_element - other_element;
         subtraction->length = one_codif->length;
     }
 }
