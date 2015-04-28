@@ -66,10 +66,8 @@ FILE *fileOpenned(File *file) {
 
 void fileReadLine(File *file, char *line, size_t max_lenght) {
     if (getline(&line, &max_lenght, file->file) == EOF) {
-        printf("FIN DE ARCHIVO!!!\n");
         file->end_of_file = EOF;
     }
-    printf("Línea leída: %s", line);
 }
 
 int fileEndOfFile(File *file) {

@@ -26,11 +26,9 @@ void argumentsCalculateGamma(Arguments *arguments) {
     float second_term = subtraction / 2;
     
     arguments->gamma = first_term + second_term;
-    printf("GAMMA VALUE: %f\n", arguments->gamma);
 }
 
 void argumentsCreate(Arguments *arguments, File *file) {
-    printf("----------------- Argumentos -----------------\n");
     // Read line from input file (File is in correct format).
     char *line_buffer = (char *)malloc(sizeof(char) * LINE_MAX_LENGHT);
     fileReadLine(file, line_buffer, LINE_MAX_LENGHT);
@@ -39,11 +37,6 @@ void argumentsCreate(Arguments *arguments, File *file) {
            &arguments->zero_prob,
            &arguments->one_prob,
            &arguments->noise_var);
-    printf("Longitud de señales: %d.\nProbabilidad de cero: %f.\nProbabilidad de uno: %f.\nVarianza del ruido: %d.\n",
-           arguments->signal_lenght,
-           arguments->zero_prob,
-           arguments->one_prob,
-           arguments->noise_var);
     
     // Create S(0) codification.
     codificationCreate(&arguments->zero_codif, file, arguments->signal_lenght);

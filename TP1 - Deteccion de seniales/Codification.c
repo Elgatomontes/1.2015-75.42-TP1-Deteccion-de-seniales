@@ -21,14 +21,9 @@ void codificationParse(Codification *codification, char *line, int length) {
         signal_element = strsep(&line, SIGNAL_SEPARATOR);
         codification->signal_codif_list[i] = atoi(signal_element);
     }
-    
-    for (int i = 0; i < length; i++) {
-        printf("Elemento %i de la señal de codificación es: %i\n", i, codification->signal_codif_list[i]);
-    }
 }
 
 void codificationCreate(Codification *codification, File *file, int length) {
-    printf("---------------- Codification ----------------\n");
     codification->length = length;
     
     char *line_buffer = (char *)malloc(sizeof(char) * length * 2);

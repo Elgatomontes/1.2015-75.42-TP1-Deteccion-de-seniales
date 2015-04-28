@@ -72,8 +72,6 @@ void signalProcessorProcess(SignalProcessor *processor) {
     Signal *signal = (Signal *)malloc(sizeof(Signal));
     
     while (signalCreate(signal, processor->input_file) == SignalCreateCodeOK) {
-        printf("--------------- SignalProcessor --------------\n");
-        printf("Entre a procesar\n");
         signalProcessorFunction(processor, signal);
         free(signal);
         signal = (Signal *)malloc(sizeof(Signal));

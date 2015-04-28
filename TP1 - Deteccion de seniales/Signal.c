@@ -25,8 +25,7 @@ void signalSetLength(Signal *signal, const char *line) {
         length_counter++;
         signal_element = strsep(&signal_line, SIGNAL_SEPARATOR);
     }
-    
-    printf("Signal length: %d\n", length_counter);
+
     signal->signal_length = length_counter;
     
     free(signal_line);
@@ -46,20 +45,14 @@ void signalParseSignal(Signal *signal, const char *line) {
         signal->signal_list[i] = atoi(signal_element);
     }
     
-    for (int i = 0; i < signal->signal_length; i++) {
-        printf("Elemento %i de la señal de codificación es: %i\n", i, signal->signal_list[i]);
-    }
-    
     free(signal_line);
 }
 
 SignalCreateCode signalCreate(Signal *signal, File *file) {
-    printf("------------------- Signal -------------------\n");
     char *line_buffer = (char *)malloc(sizeof(char) * LINE_MAX_LENGHT);
     fileReadLine(file, line_buffer, LINE_MAX_LENGHT);
     
     if (fileEndOfFile(file) == EOF) {
-        printf("\nNO SE PUDO CREAR LA SEÑAL POR SER UN FIN DE ARCHIVO\n");
         free(line_buffer);
         return SignalCreateCodeFail;
     }
