@@ -20,7 +20,7 @@ void argumentsCreate(Arguments *arguments, File *file) {
            &arguments->zero_prob,
            &arguments->one_prob,
            &arguments->noise_var);
-    printf("Longitud de señales: %d.\n Probabilidad de cero: %f.\n Probabilidad de uno: %f.\n Varianza del ruido: %d.\n",
+    printf("Longitud de señales: %d.\nProbabilidad de cero: %f.\nProbabilidad de uno: %f.\nVarianza del ruido: %d.\n",
            arguments->signal_lenght,
            arguments->zero_prob,
            arguments->one_prob,

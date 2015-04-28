@@ -41,22 +41,22 @@ int createFiles(Parameters *parameters, File *input_file, File *output_file) {
 }
 
 int main(int argc, const char * argv[]) {
-    Parameters console_parameter;
+    Parameters parameter;
     File input_file;
     File output_file;
     Arguments arguments;
     SignalProcessor processor;
     
     // Create parameter.
-    parametersCreate(&console_parameter, argc, argv);
-    if (parametersCode(&console_parameter) == ParametersCodeFail) {
+    parametersCreate(&parameter, argc, argv);
+    if (parametersCode(&parameter) == ParametersCodeFail) {
         return EXECUTION_INVALID_PARAMETERS;
     }
     
     // Create input and output files.
-    int f_creation = createFiles(&console_parameter, &input_file, &output_file);
-    if (f_creation != EXECUTION_NORMAL) {
-        return f_creation;
+    int creation_code = createFiles(&parameter, &input_file, &output_file);
+    if (creation_code != EXECUTION_NORMAL) {
+        return creation_code;
     }
     
     // Create arguments.
@@ -67,7 +67,7 @@ int main(int argc, const char * argv[]) {
     signalProcessorProcess(&processor);
     
     // Destroy all data.
-    parametersDestroy(&console_parameter);
+    parametersDestroy(&parameter);
     fileDestroy(&input_file);
     fileDestroy(&output_file);
     argumentsDestroy(&arguments);
