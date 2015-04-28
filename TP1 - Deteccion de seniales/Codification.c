@@ -13,7 +13,7 @@
 
 #define SIGNAL_SEPARATOR ","
 
-void parseSignal(Codification *codification, char *line, int length) {
+void codificationParse(Codification *codification, char *line, int length) {
     codification->signal_codif_list = (int *)malloc(length * sizeof(int));
     
     char *signal_element;
@@ -28,12 +28,13 @@ void parseSignal(Codification *codification, char *line, int length) {
 }
 
 void codificationCreate(Codification *codification, File *file, int length) {
+    printf("---------------- Codification ----------------\n");
     codification->length = length;
     
     char *line_buffer = (char *)malloc(sizeof(char) * length * 2);
     fileReadLine(file, line_buffer, length * 2);
     
-    parseSignal(codification, line_buffer, length);
+    codificationParse(codification, line_buffer, length);
     
     free(line_buffer);
 }

@@ -11,6 +11,7 @@
 #include "Arguments.h"
 
 void argumentsCreate(Arguments *arguments, File *file) {
+    printf("----------------- Argumentos -----------------\n");
     // Read line from input file (File is in correct format).
     char *line_buffer = (char *)malloc(sizeof(char) * LINE_MAX_LENGHT);
     fileReadLine(file, line_buffer, LINE_MAX_LENGHT);
@@ -19,7 +20,7 @@ void argumentsCreate(Arguments *arguments, File *file) {
            &arguments->zero_prob,
            &arguments->one_prob,
            &arguments->noise_var);
-    printf("---------- Argumentos leídos ----------\n Longitud de señales: %d.\n Probabilidad de cero: %f.\n Probabilidad de uno: %f.\n Varianza del ruido: %d.\n",
+    printf("Longitud de señales: %d.\n Probabilidad de cero: %f.\n Probabilidad de uno: %f.\n Varianza del ruido: %d.\n",
            arguments->signal_lenght,
            arguments->zero_prob,
            arguments->one_prob,

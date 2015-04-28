@@ -10,6 +10,7 @@
 
 #include "Parameters.h"
 #include "Arguments.h"
+#include "Signal.h"
 #include "File.h"
 
 #define EXECUTION_NORMAL 0
@@ -44,6 +45,7 @@ int main(int argc, const char * argv[]) {
     File input_file;
     File output_file;
     Arguments arguments;
+    Signal signal;
     
     // Create parameter.
     parametersCreate(&console_parameter, argc, argv);
@@ -60,11 +62,16 @@ int main(int argc, const char * argv[]) {
     // Create arguments.
     argumentsCreate(&arguments, &input_file);
     
+    // Create a sample signal.
+    // @TODO: Gastón - Quitar esto.
+    signalCreate(&signal, &input_file);
+    
     // Destroy all data.
     parametersDestroy(&console_parameter);
     fileDestroy(&input_file);
     fileDestroy(&output_file);
     argumentsDestroy(&arguments);
+    signalDestroy(&signal);
     
     return EXECUTION_NORMAL;
 }
