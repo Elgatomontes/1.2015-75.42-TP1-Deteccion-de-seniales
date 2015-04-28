@@ -64,4 +64,10 @@ void fileReadLine(File *file, char *line, size_t max_lenght);
  **/
 int fileEndOfFile(File *file);
 
+/**
+ * Print the char passed in the output file.
+ * @param - line: the line to print.
+ **/
+void filePrint(File *file, char *line);
+
 #endif /* defined(__TP1___Deteccion_de_seniales__File__) */

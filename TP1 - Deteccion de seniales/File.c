@@ -73,3 +73,7 @@ void fileReadLine(File *file, char *line, size_t max_lenght) {
 int fileEndOfFile(File *file) {
     return file->end_of_file;
 }
+
+void filePrint(File *file, char *line) {
+    fprintf(file->file, "%s",line);
+}

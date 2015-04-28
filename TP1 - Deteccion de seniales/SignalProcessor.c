@@ -18,13 +18,25 @@ void signalProcessorPrint(SignalProcessor *processor,
     
     printf("Final: ");
     for (int i = 0; i < process_length; i++) {
+        int value_to_print;
+        char *char_to_print = malloc(sizeof(char) * 4);
+        
         if (process[i] > gamma_value) {
-            printf("1 ,");
+            value_to_print = 1;
         } else {
-            printf("0 ,");
+            value_to_print = 0;
         }
+        
+        if (i == process_length - 1) {
+            sprintf(char_to_print, "%d\n", value_to_print);
+            printf("%d\n", value_to_print);
+        } else {
+            sprintf(char_to_print, "%d,", value_to_print);
+            printf("%d,", value_to_print);
+        }
+        filePrint(processor->output_file, char_to_print);
+        free(char_to_print);
     }
-    printf("\n");
 }
 
 void signalProcessorProduct(int *process,
@@ -105,7 +117,7 @@ void signalProcessorProcess(SignalProcessor *processor) {
             printf("%d ,", signalList(signal)[i]);
         }
         printf("\n");
-               
+        
         signalProcessorFunction(processor, signal);
         free(signal);
         signal = (Signal *)malloc(sizeof(Signal));
