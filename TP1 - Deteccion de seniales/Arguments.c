@@ -7,8 +7,27 @@
 //
 
 #include <stdlib.h>
+#include <math.h>
 
 #include "Arguments.h"
+
+void argumentsCalculateGamma(Arguments *arguments) {
+    // First term.
+    float prob_div = arguments->zero_prob/arguments->one_prob;
+    float natural_log = log(prob_div);
+    float first_term = arguments->noise_var * natural_log;
+    
+    // Second term.
+    Codification one_codif = arguments->one_codif;
+    Codification zero_codif = arguments->zero_codif;
+    int one_product = codificationProduct(&one_codif, &one_codif);
+    int zero_product = codificationProduct(&zero_codif, &zero_codif);
+    float subtraction = one_product - zero_product;
+    float second_term = subtraction / 2;
+    
+    arguments->gamma = first_term + second_term;
+    printf("GAMMA VALUE: %f\n", arguments->gamma);
+}
 
 void argumentsCreate(Arguments *arguments, File *file) {
     printf("----------------- Argumentos -----------------\n");
@@ -32,6 +51,8 @@ void argumentsCreate(Arguments *arguments, File *file) {
     // Create S(1) codification.
     codificationCreate(&arguments->one_codif, file, arguments->signal_lenght);
     
+    argumentsCalculateGamma(arguments);
+    
     free(line_buffer);
 }
 
@@ -44,26 +65,6 @@ void argumentsDestroy(Arguments *arguments) {
     codificationDestroy(&arguments->one_codif);
 }
 
-int argumentsSignalLenght(Arguments *arguments) {
-    return arguments->signal_lenght;
-}
-
-float argumentsZeroProbability(Arguments *arguments) {
-    return arguments->zero_prob;
-}
-
-float argumentsOneProbability(Arguments *arguments) {
-    return arguments->one_prob;
-}
-
-int argumentsNoiseVariance(Arguments *arguments) {
-    return arguments->noise_var;
-}
-
-Codification argumentsZeroCodification(Arguments *arguments) {
-    return arguments->zero_codif;
-}
-
-Codification argumentsOneCodification(Arguments *arguments) {
-    return arguments->one_codif;
+float argumentGamma(Arguments *arguments) {
+    return arguments->gamma;
 }

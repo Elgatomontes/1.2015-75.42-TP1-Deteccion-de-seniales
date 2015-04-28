@@ -47,3 +47,15 @@ void codificationDestroy(Codification *codification) {
 int *codificationSignalList(Codification *codification) {
     return codification->signal_codif_list;
 }
+
+int codificationProduct(Codification *one_codif, Codification *other_codif) {
+    int acum = 0;
+    for (int i = 0; i < one_codif->length; i++) {
+        int one_codif_element = one_codif->signal_codif_list[i];
+        int other_codif_element = other_codif->signal_codif_list[i];
+        
+        acum += one_codif_element * other_codif_element;
+    }
+    
+    return acum;
+}

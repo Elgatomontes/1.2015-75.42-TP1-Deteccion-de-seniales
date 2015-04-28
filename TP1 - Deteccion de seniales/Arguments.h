@@ -21,6 +21,7 @@ typedef struct {
     int noise_var;
     Codification zero_codif;
     Codification one_codif;
+    float gamma;
 } Arguments;
 
 /**
@@ -35,33 +36,8 @@ void argumentsCreate(Arguments *arguments, File *file);
 void argumentsDestroy(Arguments *arguments);
 
 /**
- * Returns the signalLenght.
+ * Returns the gamma codification.
  **/
-int argumentsSignalLenght(Arguments *arguments);
-
-/**
- * Returns the zero probability argument.
- **/
-float argumentsZeroProbability(Arguments *arguments);
-
-/**
- * Returns the one probability argument.
- **/
-float argumentsOneProbability(Arguments *arguments);
-
-/**
- * Returns the noise variance.
- **/
-int argumentsNoiseVariance(Arguments *arguments);
-
-/**
- * Returns the Codification of Zero.
- **/
-Codification argumentsZeroCodification(Arguments *arguments);
-
-/**
- * Returns the Codification of One.
- **/
-Codification argumentsOneCodification(Arguments *arguments);
+float argumentGamma(Arguments *arguments);
 
 #endif /* defined(__TP1___Deteccion_de_seniales__Arguments__) */
