@@ -68,3 +68,11 @@ void argumentsDestroy(Arguments *arguments) {
 float argumentGamma(Arguments *arguments) {
     return arguments->gamma;
 }
+
+Codification *argumentZeroCodification(Arguments *arguments) {
+    return &arguments->zero_codif;
+}
+
+Codification *argumentOneCodification(Arguments *arguments) {
+    return &arguments->one_codif;
+}

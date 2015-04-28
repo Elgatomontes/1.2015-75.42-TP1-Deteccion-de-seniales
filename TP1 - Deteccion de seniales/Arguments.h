@@ -40,4 +40,14 @@ void argumentsDestroy(Arguments *arguments);
  **/
 float argumentGamma(Arguments *arguments);
 
+/**
+ * Returns the cero codification.
+ **/
+Codification *argumentZeroCodification(Arguments *arguments);
+
+/**
+ * Returns the one codification.
+ **/
+Codification *argumentOneCodification(Arguments *arguments);
+
 #endif /* defined(__TP1___Deteccion_de_seniales__Arguments__) */
