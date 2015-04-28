@@ -16,7 +16,6 @@ void signalProcessorPrint(SignalProcessor *processor,
                           int process_length) {
     float gamma_value = argumentGamma(&processor->arguments);
     
-    printf("Final: ");
     for (int i = 0; i < process_length; i++) {
         int value_to_print;
         char *char_to_print = malloc(sizeof(char) * 4);
@@ -29,10 +28,8 @@ void signalProcessorPrint(SignalProcessor *processor,
         
         if (i == process_length - 1) {
             sprintf(char_to_print, "%d\n", value_to_print);
-            printf("%d\n", value_to_print);
         } else {
             sprintf(char_to_print, "%d,", value_to_print);
-            printf("%d,", value_to_print);
         }
         filePrint(processor->output_file, char_to_print);
         free(char_to_print);
@@ -69,30 +66,16 @@ void signalProcessorFunction(SignalProcessor *processor, Signal *signal) {
     codificationAbstractCreate(subtraction, codif_length);
     codificationSubtract(subtraction, one_codif, zero_codif);
     
-    printf("Subtraction: ");
-    for (int i = 0; i < codif_length; i++) {
-        printf("%d ,", codificationSignalList(subtraction)[i]);
-    }
-    printf("\n");
-    
     int signal_length = signalLength(signal);
     int sub_length = codificationSignalLength(subtraction);
     int process_length = signal_length / sub_length;
     int *process = malloc(process_length * sizeof(int));
     signalProcessorProduct(process, signal, subtraction);
     
-    printf("Process: ");
-    for (int i = 0; i < process_length; i++) {
-        printf("%d ,", process[i]);
-    }
-    printf("\n");
-    
     signalProcessorPrint(processor, process, process_length);
     
     free(subtraction);
     free(process);
-    
-    printf("---------------------------------------------------------------\n");
 }
 
 void signalProcessorCreate(SignalProcessor *processor,
@@ -111,13 +94,6 @@ void signalProcessorProcess(SignalProcessor *processor) {
     Signal *signal = (Signal *)malloc(sizeof(Signal));
     
     while (signalCreate(signal, processor->input_file) == SignalCreateCodeOK) {
-        // Print the signal
-        printf("Señal: ");
-        for (int i = 0; i < signalLength(signal); i++) {
-            printf("%d ,", signalList(signal)[i]);
-        }
-        printf("\n");
-        
         signalProcessorFunction(processor, signal);
         free(signal);
         signal = (Signal *)malloc(sizeof(Signal));
