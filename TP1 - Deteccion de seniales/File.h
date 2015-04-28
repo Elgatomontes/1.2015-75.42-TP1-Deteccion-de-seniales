@@ -58,4 +58,9 @@ FILE *fileOpenned(File *file);
  **/
 void fileReadLine(File *file, char *line, size_t max_lenght);
 
+/**
+ * Check the end of file of the file.
+ **/
+int fileEndOfFile(File *file);
+
 #endif /* defined(__TP1___Deteccion_de_seniales__File__) */

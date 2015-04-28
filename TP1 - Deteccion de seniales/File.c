@@ -66,3 +66,10 @@ void fileReadLine(File *file, char *line, size_t max_lenght) {
     getline(&line, &max_lenght, file->file);
     printf("Línea leída: %s", line);
 }
+
+int fileEndOfFile(File *file) {
+    if (feof(file->file) == EOF) {
+        return EOF;
+    }
+    return 0;
+}
