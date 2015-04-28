@@ -11,8 +11,20 @@
 #include "SignalProcessor.h"
 #include "Signal.h"
 
-void signalProcessorPrintProcess(SignalProcessor *processor, int *process) {
+void signalProcessorPrint(SignalProcessor *processor,
+                          int *process,
+                          int process_length) {
+    float gamma_value = argumentGamma(&processor->arguments);
     
+    printf("Final: ");
+    for (int i = 0; i < process_length; i++) {
+        if (process[i] > gamma_value) {
+            printf("1 ,");
+        } else {
+            printf("0 ,");
+        }
+    }
+    printf("\n");
 }
 
 void signalProcessorProduct(int *process,
@@ -28,7 +40,7 @@ void signalProcessorProduct(int *process,
     for (int i = 0; i < process_lenght; i++) {
         int acum = 0;
         for (int j = 0; j < sub_length; j++) {
-            int signal_element = signal_list[i * signal_length + j];
+            int signal_element = signal_list[i * sub_length + j];
             int sub_element = sub_list[j];
             int product = signal_element * sub_element;
             acum += product;
@@ -38,10 +50,18 @@ void signalProcessorProduct(int *process,
 }
 
 void signalProcessorFunction(SignalProcessor *processor, Signal *signal) {
-    Codification *subtraction = (Codification *)malloc(sizeof(Codification));
     Codification *one_codif = argumentOneCodification(&processor->arguments);
     Codification *zero_codif = argumentZeroCodification(&processor->arguments);
-    codifiationSubtract(subtraction, one_codif, zero_codif);
+    Codification *subtraction = (Codification *)malloc(sizeof(Codification));
+    int codif_length = codificationSignalLength(one_codif);
+    codificationAbstractCreate(subtraction, codif_length);
+    codificationSubtract(subtraction, one_codif, zero_codif);
+    
+    printf("Subtraction: ");
+    for (int i = 0; i < codif_length; i++) {
+        printf("%d ,", codificationSignalList(subtraction)[i]);
+    }
+    printf("\n");
     
     int signal_length = signalLength(signal);
     int sub_length = codificationSignalLength(subtraction);
@@ -49,10 +69,18 @@ void signalProcessorFunction(SignalProcessor *processor, Signal *signal) {
     int *process = malloc(process_length * sizeof(int));
     signalProcessorProduct(process, signal, subtraction);
     
-    signalProcessorPrintProcess(processor, process);
+    printf("Process: ");
+    for (int i = 0; i < process_length; i++) {
+        printf("%d ,", process[i]);
+    }
+    printf("\n");
+    
+    signalProcessorPrint(processor, process, process_length);
     
     free(subtraction);
     free(process);
+    
+    printf("---------------------------------------------------------------\n");
 }
 
 void signalProcessorCreate(SignalProcessor *processor,
@@ -68,10 +96,16 @@ void signalProcessorDestroy(SignalProcessor *processor) {
 }
 
 void signalProcessorProcess(SignalProcessor *processor) {
-    
     Signal *signal = (Signal *)malloc(sizeof(Signal));
     
     while (signalCreate(signal, processor->input_file) == SignalCreateCodeOK) {
+        // Print the signal
+        printf("Señal: ");
+        for (int i = 0; i < signalLength(signal); i++) {
+            printf("%d ,", signalList(signal)[i]);
+        }
+        printf("\n");
+               
         signalProcessorFunction(processor, signal);
         free(signal);
         signal = (Signal *)malloc(sizeof(Signal));
