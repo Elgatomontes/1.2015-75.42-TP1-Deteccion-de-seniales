@@ -9,6 +9,7 @@
 #include <stdlib.h>
 #include <string.h>
 
+#include "StringFunctions.h"
 #include "Signal.h"
 
 #define SIGNAL_SEPARATOR ","
@@ -20,12 +21,17 @@ void signalSetLength(Signal *signal, const char *line) {
     
     int length_counter = 0;
     
-    char *signal_element = strsep(&signal_line, SIGNAL_SEPARATOR);
+    char *save_str;
+    char *signal_element = stringFunctionsStrtok_r(signal_line,
+                                                   SIGNAL_SEPARATOR,
+                                                   &save_str);
     while (signal_element != NULL) {
         length_counter++;
-        signal_element = strsep(&signal_line, SIGNAL_SEPARATOR);
+        signal_element = stringFunctionsStrtok_r(NULL,
+                                                 SIGNAL_SEPARATOR,
+                                                 &save_str);
     }
-
+    
     signal->signal_length = length_counter;
     
     free(signal_line);
@@ -35,14 +41,20 @@ void signalParseSignal(Signal *signal, const char *line) {
     // Copy the line.
     char *signal_line = (char *)malloc(strlen(line)*sizeof(char));
     snprintf(signal_line, strlen(line)*sizeof(char), "%s",line);
-
+    
     signal->signal_list = (int *)malloc(signal->signal_length * sizeof(int));
     
     int signal_length = signal->signal_length;
-    for (int i = 0; i < signal_length; i++) {
-        char *signal_element;
-        signal_element = strsep(&signal_line, SIGNAL_SEPARATOR);
-        signal->signal_list[i] = atoi(signal_element);
+    char *save_str;
+    char *signal_element = stringFunctionsStrtok_r(signal_line,
+                                                   SIGNAL_SEPARATOR,
+                                                   &save_str);
+    signal->signal_list[0] = atoi(signal_element);
+    for (int i = 1; i < signal_length; i++) {
+        char *element = stringFunctionsStrtok_r(NULL,
+                                                SIGNAL_SEPARATOR,
+                                                &save_str);
+        signal->signal_list[i] = atoi(element);
     }
     
     free(signal_line);

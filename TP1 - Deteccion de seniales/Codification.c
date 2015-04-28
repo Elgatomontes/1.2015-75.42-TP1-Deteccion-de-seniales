@@ -9,6 +9,7 @@
 #include <stdlib.h>
 #include <string.h>
 
+#include "StringFunctions.h"
 #include "Codification.h"
 
 #define SIGNAL_SEPARATOR ","
@@ -17,8 +18,14 @@ void codificationParse(Codification *codification, char *line, int length) {
     codification->signal_codif_list = (int *)malloc(length * sizeof(int));
     
     char *signal_element;
-    for (int i = 0; i < length; i++) {
-        signal_element = strsep(&line, SIGNAL_SEPARATOR);
+    char *save_str;
+    signal_element = stringFunctionsStrtok_r(line, SIGNAL_SEPARATOR, &save_str);
+    codification->signal_codif_list[0] = atoi(signal_element);
+    
+    for (int i = 1; i < length; i++) {
+        signal_element = stringFunctionsStrtok_r(NULL,
+                                                 SIGNAL_SEPARATOR,
+                                                 &save_str);
         codification->signal_codif_list[i] = atoi(signal_element);
     }
 }

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		870090721AE9E2A40025CAED /* Codification.c in Sources */ = {isa = PBXBuildFile; fileRef = 870090701AE9E2A40025CAED /* Codification.c */; };
 		87753BB41AE8934D0079A4FF /* Arguments.c in Sources */ = {isa = PBXBuildFile; fileRef = 87753BB21AE8934D0079A4FF /* Arguments.c */; };
+		87C9383A1AF010D600822EE7 /* StringFunctions.c in Sources */ = {isa = PBXBuildFile; fileRef = 87C938381AF010D600822EE7 /* StringFunctions.c */; };
 		87FAAF071AE696E40073AC6F /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 87FAAF061AE696E40073AC6F /* main.c */; };
 		87FAAF151AE718C60073AC6F /* Parameters.c in Sources */ = {isa = PBXBuildFile; fileRef = 87FAAF131AE718C60073AC6F /* Parameters.c */; };
 		87FAAF181AE751420073AC6F /* File.c in Sources */ = {isa = PBXBuildFile; fileRef = 87FAAF161AE751420073AC6F /* File.c */; };
@@ -33,6 +34,8 @@
 		870090711AE9E2A40025CAED /* Codification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Codification.h; sourceTree = "<group>"; };
 		87753BB21AE8934D0079A4FF /* Arguments.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Arguments.c; sourceTree = "<group>"; };
 		87753BB31AE8934D0079A4FF /* Arguments.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Arguments.h; sourceTree = "<group>"; };
+		87C938381AF010D600822EE7 /* StringFunctions.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = StringFunctions.c; sourceTree = "<group>"; };
+		87C938391AF010D600822EE7 /* StringFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringFunctions.h; sourceTree = "<group>"; };
 		87FAAF031AE696E40073AC6F /* TP1 - Deteccion de seniales */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "TP1 - Deteccion de seniales"; sourceTree = BUILT_PRODUCTS_DIR; };
 		87FAAF061AE696E40073AC6F /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		87FAAF131AE718C60073AC6F /* Parameters.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Parameters.c; sourceTree = "<group>"; };
@@ -88,6 +91,8 @@
 				87FC39711AEEF7C800487F7E /* Signal.h */,
 				87FC39731AEF23CD00487F7E /* SignalProcessor.c */,
 				87FC39741AEF23CD00487F7E /* SignalProcessor.h */,
+				87C938381AF010D600822EE7 /* StringFunctions.c */,
+				87C938391AF010D600822EE7 /* StringFunctions.h */,
 			);
 			path = "TP1 - Deteccion de seniales";
 			sourceTree = "<group>";
@@ -149,6 +154,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				87FC39751AEF23CD00487F7E /* SignalProcessor.c in Sources */,
+				87C9383A1AF010D600822EE7 /* StringFunctions.c in Sources */,
 				87FAAF181AE751420073AC6F /* File.c in Sources */,
 				87FC39721AEEF7C800487F7E /* Signal.c in Sources */,
 				87FAAF151AE718C60073AC6F /* Parameters.c in Sources */,
