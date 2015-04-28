@@ -59,3 +59,14 @@ int codificationProduct(Codification *one_codif, Codification *other_codif) {
     
     return acum;
 }
+
+void codifiationSubtract(Codification *subtraction,
+                         Codification *one_codif,
+                         Codification *other_codif) {
+    for (int i = 0; i < one_codif->length; i++) {
+        int one_element = one_codif->signal_codif_list[i];
+        int other_element = other_codif->signal_codif_list[i];
+        subtraction->signal_codif_list[i] = one_element - other_element;
+        subtraction->length = one_codif->length;
+    }
+}

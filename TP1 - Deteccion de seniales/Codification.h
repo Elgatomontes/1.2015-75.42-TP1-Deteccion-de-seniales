@@ -40,4 +40,11 @@ int *codificationSignalList(Codification *codification);
  **/
 int codificationProduct(Codification *one_codif, Codification *other_codif);
 
+/**
+ * Save the subtract of one_codif - other_codif in subtraction.
+ **/
+void codifiationSubtract(Codification *subtraction,
+                         Codification *one_codif,
+                         Codification *other_codif);
+
 #endif /* defined(__TP1___Deteccion_de_seniales__Codification__) */
