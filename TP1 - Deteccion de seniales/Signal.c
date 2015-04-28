@@ -76,3 +76,11 @@ void signalDestroy(Signal *signal) {
     signal->signal_length = 0;
     free(signal->signal_list);
 }
+
+int signalLength(Signal *signal) {
+    return signal->signal_length;
+}
+
+int *signalList(Signal *signal) {
+    return signal->signal_list;
+}

@@ -34,4 +34,14 @@ SignalCreateCode signalCreate(Signal *signal, File *file);
  **/
 void signalDestroy(Signal *signal);
 
+/**
+ * Return the signal length.
+ **/
+int signalLength(Signal *signal);
+
+/**
+ * Return the signal list.
+ **/
+int *signalList(Signal *signal);
+
 #endif /* defined(__TP1___Deteccion_de_seniales__Signal__) */
