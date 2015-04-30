@@ -75,5 +75,9 @@ int fileEndOfFile(File *file) {
 }
 
 void filePrint(File *file, char *line) {
-    fprintf(file->file, "%s",line);
+    if (file->file != stdin && file->file != stdout) {
+        fprintf(file->file, "%s",line);
+    } else {
+        printf("%s", line);
+    }
 }
