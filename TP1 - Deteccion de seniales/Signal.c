@@ -61,6 +61,9 @@ void signalParseSignal(Signal *signal, const char *line) {
 }
 
 SignalCreateCode signalCreate(Signal *signal, File *file) {
+    signal->signal_length = 0;
+    signal->signal_list = NULL;
+    
     char *line_buffer = (char *)malloc(sizeof(char) * LINE_MAX_LENGHT);
     fileReadLine(file, line_buffer, LINE_MAX_LENGHT);
     
