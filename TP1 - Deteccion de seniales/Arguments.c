@@ -29,6 +29,12 @@ void argumentsCalculateGamma(Arguments *arguments) {
 }
 
 void argumentsCreate(Arguments *arguments, File *file) {
+    arguments->signal_lenght = 0;
+    arguments->zero_prob = 0.0;
+    arguments->one_prob = 0.0;
+    arguments->noise_var = 0;
+    arguments->gamma = 0.0;
+    
     // Read line from input file (File is in correct format).
     char *line_buffer = (char *)malloc(sizeof(char) * LINE_MAX_LENGHT);
     fileReadLine(file, line_buffer, LINE_MAX_LENGHT);
