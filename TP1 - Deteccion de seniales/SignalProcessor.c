@@ -79,6 +79,7 @@ void signalProcessorFunction(SignalProcessor *processor, Signal *signal) {
     
     signalProcessorPrint(processor, process, process_length);
     
+    codificationDestroy(subtraction);
     free(subtraction);
     free(process);
 }

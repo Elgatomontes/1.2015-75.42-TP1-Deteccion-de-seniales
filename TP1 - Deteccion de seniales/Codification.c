@@ -50,6 +50,7 @@ void codificationAbstractCreate(Codification *codification, int length) {
 void codificationDestroy(Codification *codification) {
     codification->length = 0;
     free(codification->signal_codif_list);
+    codification->signal_codif_list = NULL;
 }
 
 int *codificationSignalList(Codification *codification) {
