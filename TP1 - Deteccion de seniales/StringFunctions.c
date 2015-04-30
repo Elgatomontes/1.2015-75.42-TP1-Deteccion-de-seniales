@@ -11,7 +11,7 @@
 
 #include "StringFunctions.h"
 
-char *stringFunctionsStrtok_r(char *str, const char *delim, char **nextp) {
+char *stringFunctionsDelimit(char *str, const char *delim, char **nextp) {
     char *ret;
     
     if (str == NULL) {

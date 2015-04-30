@@ -14,6 +14,6 @@
 /**
  * Safe reimplementation of function strtok_r of <string.h>
  */
-char *stringFunctionsStrtok_r(char *str, const char *delim, char **nextp);
+char *stringFunctionsDelimit(char *str, const char *delim, char **nextp);
 
 #endif /* defined(__TP1___Deteccion_de_seniales__StringFunctions__) */

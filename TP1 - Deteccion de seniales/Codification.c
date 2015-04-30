@@ -19,13 +19,13 @@ void codificationParse(Codification *codification, char *line, int length) {
     
     char *signal_element;
     char *save_str;
-    signal_element = stringFunctionsStrtok_r(line, SIGNAL_SEPARATOR, &save_str);
+    signal_element = stringFunctionsDelimit(line, SIGNAL_SEPARATOR, &save_str);
     codification->signal_codif_list[0] = atoi(signal_element);
     
     for (int i = 1; i < length; i++) {
-        signal_element = stringFunctionsStrtok_r(NULL,
-                                                 SIGNAL_SEPARATOR,
-                                                 &save_str);
+        signal_element = stringFunctionsDelimit(NULL,
+                                                SIGNAL_SEPARATOR,
+                                                &save_str);
         codification->signal_codif_list[i] = atoi(signal_element);
     }
 }

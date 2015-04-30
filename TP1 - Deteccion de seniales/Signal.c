@@ -22,14 +22,14 @@ void signalSetLength(Signal *signal, const char *line) {
     int length_counter = 0;
     
     char *save_str;
-    char *signal_element = stringFunctionsStrtok_r(signal_line,
-                                                   SIGNAL_SEPARATOR,
-                                                   &save_str);
+    char *signal_element = stringFunctionsDelimit(signal_line,
+                                                  SIGNAL_SEPARATOR,
+                                                  &save_str);
     while (signal_element != NULL) {
         length_counter++;
-        signal_element = stringFunctionsStrtok_r(NULL,
-                                                 SIGNAL_SEPARATOR,
-                                                 &save_str);
+        signal_element = stringFunctionsDelimit(NULL,
+                                                SIGNAL_SEPARATOR,
+                                                &save_str);
     }
     
     signal->signal_length = length_counter;
@@ -46,14 +46,14 @@ void signalParseSignal(Signal *signal, const char *line) {
     
     int signal_length = signal->signal_length;
     char *save_str;
-    char *signal_element = stringFunctionsStrtok_r(signal_line,
-                                                   SIGNAL_SEPARATOR,
-                                                   &save_str);
+    char *signal_element = stringFunctionsDelimit(signal_line,
+                                                  SIGNAL_SEPARATOR,
+                                                  &save_str);
     signal->signal_list[0] = atoi(signal_element);
     for (int i = 1; i < signal_length; i++) {
-        char *element = stringFunctionsStrtok_r(NULL,
-                                                SIGNAL_SEPARATOR,
-                                                &save_str);
+        char *element = stringFunctionsDelimit(NULL,
+                                               SIGNAL_SEPARATOR,
+                                               &save_str);
         signal->signal_list[i] = atoi(element);
     }
     
