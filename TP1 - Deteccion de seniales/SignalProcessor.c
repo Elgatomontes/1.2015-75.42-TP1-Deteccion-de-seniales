@@ -100,9 +100,11 @@ void signalProcessorProcess(SignalProcessor *processor) {
     
     while (signalCreate(signal, processor->input_file) == SignalCreateCodeOK) {
         signalProcessorFunction(processor, signal);
+        signalDestroy(signal);
         free(signal);
         signal = (Signal *)malloc(sizeof(Signal));
     }
     
+    signalDestroy(signal);
     free(signal);
 }
