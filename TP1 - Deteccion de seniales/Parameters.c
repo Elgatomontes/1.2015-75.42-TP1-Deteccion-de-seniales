@@ -29,8 +29,10 @@ void parseParameters(Parameters *parameters,
                      const char *parameter_type) {
     if (strcmp(parameter_type, IN_FILE_PARAMETER_KEY) == 0) {
         parameters->input_file = parameter;
+        parameters->parameters_code = ParametersCodeOK;
     } else if (strcmp(parameter_type, OUT_FILE_PARAMETER_KEY) == 0) {
         parameters->output_file = parameter;
+        parameters->parameters_code = ParametersCodeOK;
     } else {
         setInvalidConfiguration(parameters);
     }
@@ -39,10 +41,10 @@ void parseParameters(Parameters *parameters,
 void parametersCreate(Parameters *parameters_parser,
                       int parameters_count,
                       const char *parameters[]) {
+    setInvalidConfiguration(parameters_parser);
+    
     switch (parameters_count) {
         case 1:
-            parameters_parser->input_file = NULL;
-            parameters_parser->output_file = NULL;
             parameters_parser->parameters_code = ParametersCodeOK;
             break;
         case 3:
