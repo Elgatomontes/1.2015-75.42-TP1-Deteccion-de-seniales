@@ -30,10 +30,10 @@ void signalProcessorPrint(SignalProcessor *processor,
         if (i == process_length - 1) {
             format_to_print = "%d\n";
         } else {
-            format_to_print = "%d\n";
+            format_to_print = "%d,";
         }
         
-        size_t size_needed = snprintf(NULL, 0, format_to_print, value_to_print);
+        size_t size_needed = snprintf(NULL, 0, format_to_print, value_to_print) + 1;
         char *char_to_print = (char *)malloc(size_needed);
         snprintf(char_to_print, size_needed, format_to_print, value_to_print);
         
