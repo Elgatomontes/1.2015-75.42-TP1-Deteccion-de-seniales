@@ -60,10 +60,6 @@ FileOperationCode fileOperationCode(File *file) {
     return file->operation_code;
 }
 
-FILE *fileOpenned(File *file) {
-    return file->file;
-}
-
 void fileReadLine(File *file, char *line, int max_lenght) {
     if (fgets(line, max_lenght + 1, file->file) == NULL) {
         file->end_of_file = EOF;

@@ -18,8 +18,8 @@ void signalProcessorPrint(SignalProcessor *processor,
     float gamma_value = argumentGamma(&processor->arguments);
     
     for (int i = 0; i < process_length; i++) {
-        int value_to_print;
-        char *char_to_print = malloc(sizeof(char) * 4);
+        int value_to_print = -1;
+        char *format_to_print = NULL;
         
         if (process[i] > gamma_value) {
             value_to_print = 1;
@@ -28,14 +28,15 @@ void signalProcessorPrint(SignalProcessor *processor,
         }
         
         if (i == process_length - 1) {
-            snprintf(char_to_print, strlen("%d\n")*sizeof(char),
-                     "%d\n",
-                     value_to_print);
+            format_to_print = "%d\n";
         } else {
-            snprintf(char_to_print, strlen("%d,")*sizeof(char),
-                     "%d,",
-                     value_to_print);
+            format_to_print = "%d\n";
         }
+        
+        size_t size_needed = snprintf(NULL, 0, format_to_print, value_to_print);
+        char *char_to_print = (char *)malloc(size_needed);
+        snprintf(char_to_print, size_needed, format_to_print, value_to_print);
+        
         filePrint(processor->output_file, char_to_print);
         free(char_to_print);
     }

@@ -48,11 +48,6 @@ void fileDestroy(File *file);
 FileOperationCode fileOperationCode(File *file);
 
 /**
- * Returns the file openned.
- **/
-FILE *fileOpenned(File *file);
-
-/**
  * Read a line from file.
  * @param - line: The buffer to set the line read.
  * @param - max_lenght: The maxium number of characters for a line.
