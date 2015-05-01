@@ -27,15 +27,17 @@ void signalProcessorPrint(SignalProcessor *processor,
             value_to_print = 0;
         }
         
+        size_t format_length = 0;
         if (i == process_length - 1) {
             format_to_print = "%d\n";
+            format_length = snprintf(NULL, 0, "%d\n", value_to_print) + 1;
         } else {
             format_to_print = "%d,";
+            format_length = snprintf(NULL, 0, "%d,", value_to_print) + 1;
         }
         
-        size_t size_needed = snprintf(NULL, 0, format_to_print, value_to_print);
-        char *char_to_print = (char *)malloc(size_needed  + 1);
-        snprintf(char_to_print, size_needed, format_to_print, value_to_print);
+        char *char_to_print = (char *)malloc(format_length * sizeof(char));
+        snprintf(char_to_print, format_length, format_to_print, value_to_print);
         
         filePrint(processor->output_file, char_to_print);
         free(char_to_print);
