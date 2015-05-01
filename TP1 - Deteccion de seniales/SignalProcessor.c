@@ -33,8 +33,8 @@ void signalProcessorPrint(SignalProcessor *processor,
             format_to_print = "%d,";
         }
         
-        size_t size_needed = snprintf(NULL, 0, format_to_print, value_to_print) + 1;
-        char *char_to_print = (char *)malloc(size_needed);
+        size_t size_needed = snprintf(NULL, 0, format_to_print, value_to_print);
+        char *char_to_print = (char *)malloc(size_needed  + 1);
         snprintf(char_to_print, size_needed, format_to_print, value_to_print);
         
         filePrint(processor->output_file, char_to_print);
