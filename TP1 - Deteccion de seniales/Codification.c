@@ -34,7 +34,7 @@ void codificationCreate(Codification *codification, File *file, int length) {
     codification->length = length;
     codification->signal_codif_list = NULL;
     
-    char *line_buffer = (char *)malloc(sizeof(char) * (length + 1) * 2);
+    char *line_buffer = (char *)malloc(sizeof(char) * LINE_MAX_LENGHT);
     fileReadLine(file, line_buffer, LINE_MAX_LENGHT);
     
     codificationParse(codification, line_buffer, length);
