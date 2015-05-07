@@ -61,7 +61,7 @@ FileOperationCode fileOperationCode(File *file) {
 }
 
 void fileReadLine(File *file, char *line, int max_lenght) {
-    if (fgets(line, max_lenght + 1, file->file) == NULL) {
+    if (fgets(line, max_lenght, file->file) == NULL) {
         file->end_of_file = EOF;
     }
 }

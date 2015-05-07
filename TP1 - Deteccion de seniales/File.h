@@ -11,7 +11,7 @@
 
 #include <stdio.h>
 
-#define LINE_MAX_LENGHT 255
+#define LINE_MAX_LENGHT 256
 
 typedef enum {
     FileOperationCodeSuccess,
